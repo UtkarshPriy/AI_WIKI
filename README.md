@@ -1,40 +1,15 @@
 # AI Knowledge Search
 
-## 📌 Overview
-AI Knowledge Search is a document-based AI-powered search system that allows users to upload PDFs and CHM files, extract their content, and perform intelligent searches using OpenAI embeddings and FAISS vector search.
+AI Knowledge Search is a document-based AI-powered search engine that enables users to upload documents (PDFs/CHMs), extract their content, and query them using OpenAI's API for intelligent answers.
 
-## 🚀 Features
-- **Upload and Process Documents**: Supports PDF and CHM file formats.
-- **AI-Powered Search**: Uses OpenAI embeddings to find relevant document content.
-- **Vector Search with FAISS**: Efficient retrieval of similar document segments.
-- **JWT Authentication**: Secure access to API routes.
-- **Docker Support**: Easily deployable with Docker.
-- **MongoDB Integration**: Stores document embeddings and metadata.
+## Features
+- Upload PDF and CHM files.
+- Extract text and store embeddings.
+- Query documents with AI-powered responses.
+- Vector search using FAISS.
+- JWT authentication for secure access.
 
-## 📂 Folder Structure
-```
-AI_WIKI/
-│── config/
-│   ├── db.js         # MongoDB connection
-│   ├── auth.js       # JWT authentication middleware
-│   ├── openai.js     # OpenAI API helper
-│── routes/
-│   ├── upload.js     # Upload and process documents
-│   ├── query.js      # AI-powered search query endpoint
-│── utils/
-│   ├── faiss.js      # FAISS vector search
-│   ├── pdfParser.js  # PDF text extraction
-│── server.js         # Main Express server
-│── Dockerfile        # Docker configuration
-│── package.json      # Project dependencies
-│── .env              # Environment variables
-```
-
-## ⚙️ Installation & Setup
-### Prerequisites
-- Node.js (v18+)
-- MongoDB
-- Docker (optional for containerized deployment)
+## Installation & Setup
 
 ### 1️⃣ Clone the Repository
 ```sh
@@ -48,51 +23,69 @@ npm install
 ```
 
 ### 3️⃣ Set Up Environment Variables
-Create a `.env` file in the root directory and add:
-```
-MONGO_URI=<your-mongodb-connection-string>
-JWT_SECRET=<your-secret-key>
-OPENAI_API_KEY=<your-openai-api-key>
+Create a `.env` file in the root directory and configure the following:
+```env
+MONGO_URI=your_mongodb_connection_string
+OPENAI_API_KEY=your_openai_api_key
+JWT_SECRET=your_jwt_secret
 ```
 
-### 4️⃣ Start the Server
+### 4️⃣ Run the Application
 ```sh
-npm start
+node server.js
 ```
-The server runs on `http://localhost:3000`
+Server will start on `http://localhost:3000`
 
-## 🐳 Deploy with Docker
+## API Endpoints
+
+### Authentication
+- `POST /auth/register` - Register a new user.
+- `POST /auth/login` - Authenticate and get a JWT token.
+
+### File Upload
+- `POST /upload` - Upload and process a PDF or CHM file.
+
+### Query AI
+- `POST /query` - Query uploaded documents using AI.
+
+## Deploy with Docker
+
 ### 1️⃣ Build the Docker Image
 ```sh
 docker build -t ai-knowledge-search .
 ```
+
 ### 2️⃣ Run the Docker Container
 ```sh
 docker run -p 3000:3000 --env-file .env ai-knowledge-search
 ```
 
-## 📡 API Endpoints
-### 🔹 Upload a Document
-**POST** `/upload`
-```sh
-curl -X POST -F "document=@sample.pdf" http://localhost:3000/upload
+## Project Structure
+```
+AI_WIKI/
+│-- config/
+│   ├── db.js         # MongoDB connection
+│   ├── auth.js       # JWT authentication middleware
+│   ├── openai.js     # OpenAI API helper
+│-- routes/
+│   ├── upload.js     # Handles file uploads
+│   ├── query.js      # Handles AI queries
+│   ├── auth.js       # Authentication routes
+│-- utils/
+│   ├── faiss.js      # FAISS vector search
+│   ├── pdfParser.js  # PDF text extraction
+│-- server.js         # Main Express server
+│-- Dockerfile        # Docker setup
+│-- package.json      # Node.js dependencies
+│-- README.md         # Project documentation
 ```
 
-### 🔹 Query AI Search
-**POST** `/query`
-```sh
-curl -X POST -H "Content-Type: application/json" -d '{"question":"What is the summary?"}' http://localhost:3000/query
-```
+## Contributing
+Feel free to fork this repository and contribute via pull requests.
 
-## 🛠 Future Enhancements
-- Support for additional document formats
-- Enhanced AI summarization and ranking
-- Web-based UI for document management
-
-## 📜 License
+## License
 This project is licensed under the MIT License.
 
-### 📬 Contact
-For any queries or contributions, feel free to open an issue in the repository:
-[GitHub: AI_WIKI](https://github.com/UtkarshPriy/AI_WIKI)
+## Contact
+For any issues or questions, reach out via [GitHub](https://github.com/UtkarshPriy/AI_WIKI).
 
