@@ -1,4 +1,4 @@
-# AI Knowledge Search
+# AI Confluence Search
 
 AI Knowledge Search is a document-based AI-powered search engine that enables users to upload documents (PDFs/CHMs), extract their content, and query them using OpenAI's API for intelligent answers.
 
@@ -74,11 +74,15 @@ AI_WIKI/
 │-- utils/
 │   ├── faiss.js      # FAISS vector search
 │   ├── pdfParser.js  # PDF text extraction
+│   ├── chmParser.js  # CHM file extraction using unzipper
 │-- server.js         # Main Express server
 │-- Dockerfile        # Docker setup
 │-- package.json      # Node.js dependencies
 │-- README.md         # Project documentation
 ```
+
+## CHM Extraction
+CHM files are extracted using the `unzipper` package. The extracted content is read from `.htm`, `.html`, and `.txt` files within the CHM archive to provide relevant text data.
 
 ## Contributing
 Feel free to fork this repository and contribute via pull requests.
