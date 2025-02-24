@@ -1,23 +1,25 @@
 {
-    "name": "ai-knowledge-search",
-    "version": "1.0.0",
-    "description": "AI-powered knowledge search from documents",
-    "main": "server.js",
-    "scripts": {
-      "start": "node server.js",
-      "dev": "nodemon server.js"
-    },
-    "dependencies": {
-      "express": "^4.18.2",
-      "cors": "^2.8.5",
-      "express-fileupload": "^1.4.0",
-      "dotenv": "^16.0.3",
-      "mongodb": "^5.1.0",
-      "jsonwebtoken": "^9.0.0",
-      "axios": "^1.4.0",
-      "faiss-node": "^1.0.0",
-      "pdf-parse": "^1.1.1",
-      "chm-decompiler": "^1.0.3"
-    }
+  "name": "ai_wiki-main",
+  "version": "1.0.0",
+  "description": "AI Knowledge Search is a document-based AI-powered search engine that enables users to upload documents (PDFs/CHMs), extract their content, and query them using OpenAI's API for intelligent answers.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-fileupload": "^1.5.1",
+    "faiss-node": "^0.5.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.13.1",
+    "pdf-parse": "^1.1.1",
+    "unzipper": "^0.12.3"
   }
-  
+}
